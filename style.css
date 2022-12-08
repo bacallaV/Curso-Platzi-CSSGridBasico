@@ -22,7 +22,7 @@ button:hover{
 
 .hero {
     display: grid;
-    grid-template-columns: 2fr 3fr;
+    grid-template-columns: minmax(300px, 2fr) 3fr;
     grid-auto-rows: 400px;
 }
 .hero .hero-image {
@@ -74,7 +74,7 @@ button:hover{
 }
 .dishes--grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(150px, 20%));
     grid-auto-rows: 1fr;
     gap: 24px;
     justify-content: center;
@@ -115,4 +115,22 @@ button:hover{
     height: 100%;
     border-radius: 16px;
     object-fit: contain;
+}
+
+@media screen and (max-width: 768px) {
+    .hero {
+        grid-template-columns: minmax(250px, 500px);
+        justify-content: center;
+    }
+    .hero-image {
+        display: none;
+    }
+
+    .dishes--grid {
+        grid-template-columns: repeat(auto-fit, minmax(75px, 100px));
+    }
+    
+    .plates--grid {
+        grid-template-columns: repeat(auto-fit, minmax(75px, 100px));
+    }
 }
